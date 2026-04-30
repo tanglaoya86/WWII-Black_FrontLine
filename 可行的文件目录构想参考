@@ -1,0 +1,41 @@
+ra2-refactor/
+├── src/
+│   ├── pyra2/                    # 你的 Python 主包
+│   │   ├── __init__.py
+│   │   ├── game/                 # 游戏逻辑（单位、建筑、规则）
+│   │   │   ├── __init__.py
+│   │   │   ├── units.py
+│   │   │   └── pathfinding.py   # 可能调用我的寻路加速
+│   │   ├── engine/               # 引擎封装（渲染、音频、输入）
+│   │   │   ├── __init__.py
+│   │   │   ├── renderer.py      # 调用我的绘图加速
+│   │   │   └── audio.py
+│   │   └── formats/              # 资源格式解析（Python 侧）
+│   │       ├── mix.py
+│   │       └── shp.py
+│   │
+│   └── native/                   # 我的 C++ 和 NASM 加速层
+│       ├── include/              # 公共头文件
+│       │   └── ra2native.h
+│       ├── cpp/                  # C++ 实现
+│       │   ├── path_optimizer.cpp
+│       │   └── pixel_blitter.cpp
+│       ├── asm/                  # NASM 汇编
+│       │   ├── cpuid.asm         # 示例：快速像素复制
+│       │   └── a_star_core.asm   # 寻路热点
+│       ├── bindings.cpp          # pybind11/ctypes 导出入口
+│       └── CMakeLists.txt        # 构建脚本
+│
+├── tests/                        # 测试
+│   ├── test_pathfinding.py
+│   └── test_native.py
+├── scripts/                      # 辅助脚本
+│   ├── build_native.py           # 一键编译我的本地模块
+│   └── extract_assets.py         # 用户自用资源提取工具
+├── docs/                         # 接口文档、开发指南
+├── .gitignore
+├── CMakeLists.txt                # 顶层构建
+├── README.md
+└── LICENSE
+
+其实看起来很直白：你在 pyra2/ 写逻辑，把需要加速的函数接口告诉我，我在 native/ 里实现成模块，你再 import 调用 有需要随时对齐函数签名好吧
