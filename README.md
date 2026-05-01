@@ -67,5 +67,6 @@ pg.quit()
 extern getch
 main:
     xor rcx,rcx
-```
     call getch
+```
+听说你们Py有个ra2mix专注处理《红警2》资源文件（*.mix）
