@@ -46,3 +46,5 @@ NASM编译后（我来）链接生成 .pyd (Python 扩展) 或 .dll
 
 你的 Python 就大概也许可能或许应该可以用 ctypes 调...
 
+https://chat.deepseek.com/share/3rr4xws3kmg3h53uw4     看这个
+是那个方案，方案1？
