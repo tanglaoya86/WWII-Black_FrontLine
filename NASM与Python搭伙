@@ -20,3 +20,6 @@ buf = (ctypes.c_ubyte * size).from_address(data_ptr)
 Py_BEGIN_ALLOW_THREADS
 // 你的密集计算，可调用我的 NASM 函数
 Py_END_ALLOW_THREADS
+
+
+https://chat.deepseek.com/share/3rr4xws3kmg3h53uw4    方案1？
