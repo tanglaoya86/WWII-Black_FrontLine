@@ -15,3 +15,47 @@
 我先写啥啊，正在研究窗口，刚才看了一下说pygame最好，网上资源也多。还有这剧情可不可以啊
 
 # 行 我先写NASM 标准:Microsoft x64 ABI 我设想的调用链为:NASM(obj) -> C\C++(extern) -> Python
+
+## 我这个py发癫，按键盘上的键没用，得好好研究一下
+import os
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'   # 必须放在 import pygame 之前
+
+import pygame as pg
+
+pg.init()
+window=pg.display.set_mode((800,600)) #创建窗口
+pg.display.set_caption("RA2")#设置窗口名
+script_dir = os.path.dirname(__file__)#获取脚本窗口
+icon_path = os.path.join(script_dir, 'assets/images/ui/window.png')#设置路径
+icon=pg.image.load(icon_path)#加载图片
+pg.display.set_icon(icon)#设置窗口图标
+running = True
+info = pg.display.Info()  # 获取显示信息
+screen_w, screen_h = info.current_w, info.current_h
+clock = pg.time.Clock()  # 在循环前创建时钟对象
+is_fullscreen = False
+
+while running:    
+    # 只要 running 是 True 就一直循环
+    for event in pg.event.get():  # 把新发生的事件全处理一遍
+        if event.type == pg.QUIT: # 如果点了关闭按钮
+            running = False       # 就让循环结束
+    # 检测按键按下
+        if event.type == pg.KEYDOWN:
+           print('检测到按键:', event.key)  # 诊断用，可以观察
+           if event.key == pg.K_ESCAPE:
+               running = False          # 按ESC退出
+           elif event.key == pg.K_f:
+               # 全屏切换示例
+               print("1")
+               is_fullscreen = not is_fullscreen
+               if is_fullscreen:
+                    window = pg.display.set_mode((info.current_w, info.current_h), pg.FULLSCREEN)
+               else:
+                    window = pg.display.set_mode((800, 600), pg.RESIZABLE)
+                    pg.display.maximize()
+
+    window.fill((0, 100, 200))      # 填充一个颜色
+    pg.display.flip()               # 刷新画面
+    clock.tick(60)                  # 限制 60 帧
+pg.quit()
