@@ -78,3 +78,4 @@ main:
 今天一天都在外面，但是看了一下py和c++的合作原理      你瞅瞅是不是这个方案
 https://www.bilibili.com/video/BV17y4y1W7BY/?spm_id_from=333.337.search-card.all.click
 https://www.bilibili.com/video/BV1RZ4y1e7n1/?spm_id_from=333.337.search-card.all.click
+https://www.bilibili.com/cheese/play/ss20832?query_from=0&search_id=9534612882170631179&search_query=py%E5%92%8Cc%2B%2B%E5%90%88%E4%BD%9C&csource=common_hpsearch_null_null&spm_id_from=333.337.search-card.all.click
