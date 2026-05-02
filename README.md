@@ -75,7 +75,9 @@ main:
 是，你要这个？
 有人玩py和ra2的，还专门做了一个py库叫ra2mix
 
-今天一天都在外面，但是看了一下py和c++的合作原理      你瞅瞅是不是这个方案
+今天一天都在外面，但是看了一下py和c++的合作原理。明天可能也没多少时间      你瞅瞅是不是这个方案
 https://www.bilibili.com/video/BV17y4y1W7BY/?spm_id_from=333.337.search-card.all.click
 https://www.bilibili.com/video/BV1RZ4y1e7n1/?spm_id_from=333.337.search-card.all.click
 https://www.bilibili.com/cheese/play/ss20832?query_from=0&search_id=9534612882170631179&search_query=py%E5%92%8Cc%2B%2B%E5%90%88%E4%BD%9C&csource=common_hpsearch_null_null&spm_id_from=333.337.search-card.all.click
+
+## 我要写ui把音频图片之类的py用上就得先写个主程序main.py(虽然最后要改名)才行。我先写个加载动画，然后你把检查dll的py扩展写好，我在加上检查dll的过程？
