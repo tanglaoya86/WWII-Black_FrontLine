@@ -71,3 +71,6 @@ main:
     call getch
 ```
 听说你们Py有个ra2mix专注处理《红警2》资源文件（*.mix）
+
+是，你要这个？
+有人玩py和ra2的，还专门做了一个py库叫ra2mix
