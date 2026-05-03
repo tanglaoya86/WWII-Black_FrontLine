@@ -85,6 +85,7 @@ https://www.bilibili.com/cheese/play/ss20832?query_from=0&search_id=953461288217
 
 我还看了一下，简直我草了。一个优质的坦克模型（现代的那种高清的红警mod      https://www.bilibili.com/video/BV1qv411r7Nc/?spm_id_from=333.337.search-card.all.click）就要一个熟练模型师干7个小时，就是熟悉的模型师做原版红警的那种糊画质模型都要将近2个小时（https://www.bilibili.com/video/BV1Dx4y1g7gj/?spm_id_from=333.337.search-card.all.click），ui贴图更难说，毕竟是脸面怎么也要画好，但就是一个金属光泽我们就要掉，我们这个学校不可能有很会搞模型和游戏贴图的，卒了，还是只有我会一点模型（只会一点，简易广州塔模型已经是我的极限了），模型边做边学我也干了吧，ui贴图我们拿鼠标搞不可能搞好，只有让footer弄个触控笔在手机上画了，不然最好找个有平板画画的（或者让footer搞个平板方便点？但他家有点穷，有点难为他，虽然他爸支持）。
 
+## 那个qq录屏是刚研究出来的，窗口图标是那个window.png
 # 我写检查dll然后WinVerifyTrust以及API Hook检查谁在卸载dll最好有C运行时的时候用atexit打断过程抓个密钥 不过你们Py的是dll还是lib 依赖什么要告诉我        你这个的意思我看了大概吧，如果你说是库的话那就是dll，前面给你视频链接了，过程都有讲
 素材我不管 
 # ui贴图好说你知道rc就行
