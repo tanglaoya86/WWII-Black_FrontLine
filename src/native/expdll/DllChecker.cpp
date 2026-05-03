@@ -5,6 +5,9 @@
 //   FreeResult：释放返回的 JSON 字符串
 //其他注意事项:
 //   JSON看最后
+//   txt文件格式
+//其实我打算把txt后续改为一个MD5的加盐哈希然后用 .bin 存储最后再核对但是...看你
+//...
 #define WIN32_LEAN_AND_MEAN
 #define _WIN32_WINNT _WIN32_WINNT_WIN7
 #include <windows.h>
@@ -149,7 +152,7 @@ static std::string build_json_report(const std::wstring& config_path) {
             error = get_last_error_text(err);
         }
 
-        // 生成 JSON 对象
+        // 生成 JSON 对象 自己琢磨一下好吗  <Auror>
         json << "{\"name\":\"" << full_name << "\","
              << "\"exists\":" << (exists ? "true" : "false") << ","
              << "\"loadable\":" << (loadable ? "true" : "false") << ","
@@ -231,3 +234,29 @@ BOOL APIENTRY DllMain(HMODULE, DWORD, LPVOID) {
   ]
 }
 请你自己用Py处理吧*/
+//注意了这里
+/*
+    nesdll.txt 的格式非常简单 一行一个 DLL 名称 支持以下特点：
+    可带或不带.dll扩展名（不带会自动补全的）
+    空行和首尾空格忽略
+    不需要完整路径，只写文件名即可（程序会在指定目录下查找）
+    不要包含路径分隔符或目录，否则会被当作文件名一部分然后肘击你的状态机
+    
+放置位置:
+    默认会从传入的目录下读取 nesdll.txt  比如你调用 check_dlls(r"C:\MyAPP")，程序会去读C:\MyApp\nesdll.txt ，并在C:\MyApp\目录下寻找列出的 DLL
+    
+nesdll.txt示例如下
+    
+    kernel32
+    user32.dll
+    shell32
+    ole32.dll
+    等价于：
+    kernel32.dll
+    user32.dll
+    shell32.dll
+    ole32.dll
+特别注意
+    每一行只写一个 DLL 名称，不要写类似 C:\Windows\System32\kernel32.dll 这样的完整路径
+    中文名等 Unicode 路径请通过 Python 的 CheckDllsW 传递，DLL 内部已处理
+*/
