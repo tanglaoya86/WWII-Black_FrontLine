@@ -89,3 +89,6 @@ https://www.bilibili.com/cheese/play/ss20832?query_from=0&search_id=953461288217
 # 我写检查dll然后WinVerifyTrust以及API Hook检查谁在卸载dll最好有C运行时的时候用atexit打断过程抓个密钥 不过你们Py的是dll还是lib 依赖什么要告诉我        你这个的意思我看了大概吧，如果你说是库的话那就是dll，前面给你视频链接了，过程都有讲
 素材我不管 
 # ui贴图好说你知道rc就行
+
+
+# 所以说你可以开写了吗
