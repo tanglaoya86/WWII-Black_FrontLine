@@ -2,7 +2,14 @@
 
 ## 我裂了，它一直无法导入，查了一下又是没装运行库，看了一下一个不缺，又查说是要装Visual Studio，装了还是不行，啥情况，不然你搞成静态链接？我实在撑不住了，睡了
 
+## 最后看了一下，缺libwinpthread-1.dll，就是DllChecker.dll是用MinGW（GCC的Windows版）编的意思，我还没转MinGW我装了就是，但总不可能要玩这个还得装个这玩意吧
 
+## ai给的
+告诉他：当前是动态链接 MinGW 运行时（libwinpthread-1.dll、libgcc_s_seh-1.dll、libstdc++-6.dll），请改成静态链接，这样生成的 DLL 不依赖任何外部运行时文件。
+编译命令示例（MinGW）：
+
+bash
+g++ -shared -static -static-libgcc -static-libstdc++ -Wl,-Bstatic -lpthread -Wl,-Bdynamic -o DllChecker.dll DllChecker.cpp -lshlwapi -luser32
 
 
 # 汇编重写这段Py代码的任何部分都极其不划算而且...你就只写了个窗口啊   难道我不就是先让你看看吗，也没让你重写啊。至于这个按钮的逻辑我好好研究一下，把其他几个页面最出来
