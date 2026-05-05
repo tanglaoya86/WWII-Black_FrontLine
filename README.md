@@ -22,7 +22,7 @@ if (nth->FileHeader.Machine != IMAGE_FILE_MACHINE_AMD64)
 ## 我裂了，它一直无法导入，查了一下又是没装运行库，看了一下一个不缺，又查说是要装Visual Studio，装了还是不行，啥情况，不然你搞成静态链接？我实在撑不住了，睡了
 
 ## 最后看了一下，缺libwinpthread-1.dll，就是DllChecker.dll是用MinGW（GCC的Windows版）编的意思，我还没转MinGW我装了就是，但总不可能要玩这个还得装个这玩意吧     
-
+## 行行行我开/MT
 ## ai给的
 告诉他：当前是动态链接 MinGW 运行时（libwinpthread-1.dll、libgcc_s_seh-1.dll、libstdc++-6.dll），请改成静态链接，这样生成的 DLL 不依赖任何外部运行时文件。
 编译命令示例（MinGW）：这会让dll变成Hanson的 不然我还可以直接在编译 DLL 时选择静态链接运行时（多线程 (/MT)），把运行时打进 DLL 里
