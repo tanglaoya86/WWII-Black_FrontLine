@@ -1,5 +1,5 @@
 ### 有用的是DLL就是src/native/expdll/ 下面的两个Dllchecker
-
+# 我觉得你缺的是.a你是不是要装C运行时
 ## 我裂了，它一直无法导入，查了一下又是没装运行库，看了一下一个不缺，又查说是要装Visual Studio，装了还是不行，啥情况，不然你搞成静态链接？我实在撑不住了，睡了
 
 ## 最后看了一下，缺libwinpthread-1.dll，就是DllChecker.dll是用MinGW（GCC的Windows版）编的意思，我还没转MinGW我装了就是，但总不可能要玩这个还得装个这玩意吧
