@@ -11,7 +11,7 @@ if (nth->FileHeader.Machine != IMAGE_FILE_MACHINE_AMD64)
 64 位 Python 只能加载 64 位 DLL
 32 位 Python 只能加载 32 位 DLL
 
-#  你就是缺少 Visual C++ 运行时库
+#  你就是缺少 Visual C++ 运行时库       but我用了github上的开源软件，检测依赖就是只缺那个文件，system32我也看了真的不缺
 
 我的 DLL 使用了 C++ 标准库（std::string、std::vector、文件流等）如果编译时链接了动态运行时在未安装 Visual C++ Redistributable 的机器上会缺少 msvcp140.dll、vcruntime140.dll 等依赖。
 你去下载VC++ Redist看一下
@@ -21,7 +21,7 @@ if (nth->FileHeader.Machine != IMAGE_FILE_MACHINE_AMD64)
 
 ## 我裂了，它一直无法导入，查了一下又是没装运行库，看了一下一个不缺，又查说是要装Visual Studio，装了还是不行，啥情况，不然你搞成静态链接？我实在撑不住了，睡了
 
-## 最后看了一下，缺libwinpthread-1.dll，就是DllChecker.dll是用MinGW（GCC的Windows版）编的意思，我还没转MinGW我装了就是，但总不可能要玩这个还得装个这玩意吧
+## 最后看了一下，缺libwinpthread-1.dll，就是DllChecker.dll是用MinGW（GCC的Windows版）编的意思，我还没转MinGW我装了就是，但总不可能要玩这个还得装个这玩意吧     
 
 ## ai给的
 告诉他：当前是动态链接 MinGW 运行时（libwinpthread-1.dll、libgcc_s_seh-1.dll、libstdc++-6.dll），请改成静态链接，这样生成的 DLL 不依赖任何外部运行时文件。
