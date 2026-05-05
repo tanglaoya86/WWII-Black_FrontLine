@@ -1,12 +1,31 @@
 ### 有用的是DLL就是src/native/expdll/ 下面的两个Dllchecker
-# 我觉得你缺的是.a你是不是要装C运行时
+# 32 位 / 64 位不匹配
+
+我的代码里写死了只检查 64 位 PE：
+```cpp
+if (nth->FileHeader.Machine != IMAGE_FILE_MACHINE_AMD64)
+    return -1;
+```
+但问题不在这个判断，而在于 DLL 本身的位数 必须和 Python 解释器的位数一致。
+
+64 位 Python 只能加载 64 位 DLL
+32 位 Python 只能加载 32 位 DLL
+
+#  你就是缺少 Visual C++ 运行时库
+
+我的 DLL 使用了 C++ 标准库（std::string、std::vector、文件流等）如果编译时链接了动态运行时在未安装 Visual C++ Redistributable 的机器上会缺少 msvcp140.dll、vcruntime140.dll 等依赖。
+你去下载VC++ Redist看一下
+# 函数没找到
+这是经典问题```cppextern "C" __declspec(dllexport) const char* CheckDllsA(const char* path);```
+虽然 extern "C" 避免了 C++ 名字修饰，但在 32 位 下它会导出为 _CheckDllsA这和32 位 / 64 位不匹配向呼应但是我认为你应该去下载VC++ Redist
+
 ## 我裂了，它一直无法导入，查了一下又是没装运行库，看了一下一个不缺，又查说是要装Visual Studio，装了还是不行，啥情况，不然你搞成静态链接？我实在撑不住了，睡了
 
 ## 最后看了一下，缺libwinpthread-1.dll，就是DllChecker.dll是用MinGW（GCC的Windows版）编的意思，我还没转MinGW我装了就是，但总不可能要玩这个还得装个这玩意吧
 
 ## ai给的
 告诉他：当前是动态链接 MinGW 运行时（libwinpthread-1.dll、libgcc_s_seh-1.dll、libstdc++-6.dll），请改成静态链接，这样生成的 DLL 不依赖任何外部运行时文件。
-编译命令示例（MinGW）：
+编译命令示例（MinGW）：这会让dll变成Hanson的 不然我还可以直接在编译 DLL 时选择静态链接运行时（多线程 (/MT)），把运行时打进 DLL 里
 
 bash
 g++ -shared -static -static-libgcc -static-libstdc++ -Wl,-Bstatic -lpthread -Wl,-Bdynamic -o DllChecker.dll DllChecker.cpp -lshlwapi -luser32
